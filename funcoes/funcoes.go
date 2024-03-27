@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func funcaoSimples() {
 	fmt.Println("Função simples")
@@ -54,6 +56,10 @@ func outer() (func() int, int) {
 	return inner, outerVar
 }
 
+func erro() (int, error) { // Não há tratamento de exceção. Funções que podem produzir um erro apenas declaram um valor de retorno adicional do tipo Error
+	return 0, nil
+}
+
 func main() {
 	//atribuindo uma função a uma variável estilo => no javascript
 	funcao := func(a, b int) int {
@@ -81,4 +87,8 @@ func main() {
 	inner, outer := outer()
 	fmt.Println(inner())
 	fmt.Println(outer)
+
+	result, err := erro()
+	fmt.Println(result)
+	fmt.Println(err)
 }
