@@ -50,6 +50,9 @@ func mmap() {
 	m["key"] = 42
 	fmt.Println(m["key"])
 
+	elem, ok := m["key"] //testa se a chave key está presente e retorna isso, caso esteja
+
+	fmt.Println(elem, ok)
 }
 
 func main() {
