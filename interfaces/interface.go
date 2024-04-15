@@ -30,6 +30,10 @@ func Desativacao(pessoa Pessoa) {
 	pessoa.Desativar()
 }
 
+func showType(t interface{}) {
+	fmt.Printf("Type: %T Valor: %v\n", t, t)
+}
+
 func main() {
 	joao := Cliente{
 		name:  "João",
@@ -42,4 +46,18 @@ func main() {
 	}
 	fmt.Println(joao.ativo)
 	Desativacao(joao)
+
+	//interfaces vazias
+	//simula tipagem dinamica
+
+	var x interface{} = "hello"
+	var y interface{} = 10
+
+	showType(x)
+	showType(y)
+
+	x = 10
+	y = "hello"
+	showType(x)
+	showType(y)
 }
